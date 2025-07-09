@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bd2tpys0ucpeg"]
+
+[ext_resource type="Texture2D" uid="uid://suj0yckpihi8" path="res://Assets/Object/Scarecrow/Scarecrow1.png" id="1_3fpv4"]
+[ext_resource type="Texture2D" uid="uid://iom75yq7skkc" path="res://Assets/Object/Scarecrow/Scarecrow2.png" id="2_ty5m4"]
+[ext_resource type="Texture2D" uid="uid://dalwlfgeym5u" path="res://Assets/Object/Scarecrow/Scarecrow3.png" id="3_maln7"]
+[ext_resource type="Texture2D" uid="uid://bakywvqgn2epl" path="res://Assets/Object/Scarecrow/Scarecrow4.png" id="4_1gmxx"]
+[ext_resource type="Texture2D" uid="uid://d2oq44xt8f6s2" path="res://Assets/Object/Scarecrow/Scarecrow5.png" id="5_nrmq3"]
+[ext_resource type="Script" uid="uid://cnnnslb42s3bj" path="res://Assets/Object/Scarecrow/Hitbox.cs" id="6_ty5m4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qx6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3fpv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ty5m4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_maln7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1gmxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nrmq3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3fpv4"]
+height = 32.0
+
+[node name="Scarecrow" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 0)
+rotation = -3.14159
+scale = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_3qx6y")
+frame = 4
+frame_progress = 0.556947
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("6_ty5m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_3fpv4")

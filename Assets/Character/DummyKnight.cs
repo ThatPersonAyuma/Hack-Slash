@@ -62,7 +62,6 @@ public partial class DummyKnight : CharacterBody2D
 			DashEnergy += 10 * delta;
 			DashEnergyBar.Value = DashEnergy;
 		}
-		GD.Print(DashEnergy);
 		// ProcessShake();
 	}
 	async Task DashInput()
@@ -213,12 +212,12 @@ public partial class DummyKnight : CharacterBody2D
 		Godot.Collections.Array<Area2D>  Overlapp = AttackArea.GetOverlappingAreas();
 		if (Overlapp.Count > 0)
 		{
-			Task freezeTAsk = FreezeScene(timeScale: 0.005, duration: 0.5);
-			while (!freezeTAsk.IsCompleted)
+			Task freezeTask = FreezeScene(timeScale: 0.005, duration: 0.5);
+			while (!freezeTask.IsCompleted)
 			{
 				Cam.Offset = new Vector2(Cam.Position.X + 3 * toggle, Cam.Position.Y + 3 * toggle);
 				toggle *= -1;
-				await Task.Delay(80);
+				await Task.Delay(100);
 			}
 			Cam.Offset = new Vector2(0, 0);
 			GD.Print("Ada yang overlap");

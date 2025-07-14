@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=4 uid="uid://c08qw02gtrje3"]
 
 [ext_resource type="Texture2D" uid="uid://cumnucpy0g1s8" path="res://Assets/Map/Forest/Assets/Tileset.png" id="1_5lvmf"]
-[ext_resource type="Texture2D" uid="uid://bv0xtd0nd7nlt" path="res://Assets/Map/Forest/Assets/BG1.png" id="2_iuqq7"]
 [ext_resource type="Texture2D" uid="uid://fjp7wsn10x6e" path="res://Assets/Map/Forest/Assets/BG3.png" id="3_j2k5e"]
 [ext_resource type="Texture2D" uid="uid://b6n7opfxlldts" path="res://Assets/Map/Forest/Assets/BG2.png" id="4_2a02g"]
 [ext_resource type="Script" uid="uid://coh3rspw8fn87" path="res://FallBorder.cs" id="5_35jjp"]
+[ext_resource type="PackedScene" uid="uid://13pdh1463v8a" path="res://Assets/Map/Forest/mountain_background.tscn" id="6_enb46"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4d7sh"]
 texture = ExtResource("1_5lvmf")
@@ -69,19 +69,15 @@ normal = Vector2(-1, 0)
 
 [node name="DummyMap" type="Node2D"]
 
-[node name="Bg1" type="Sprite2D" parent="."]
-z_index = -3
-position = Vector2(575, 325)
-scale = Vector2(3.59687, 3.36458)
-texture = ExtResource("2_iuqq7")
-
 [node name="Bg3" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(575, 303)
 scale = Vector2(3.59375, 3.59375)
 texture = ExtResource("3_j2k5e")
 
 [node name="Awan" type="Sprite2D" parent="."]
+visible = false
 z_index = -2
 position = Vector2(574, 277)
 scale = Vector2(3.58854, 3.58333)
@@ -101,8 +97,12 @@ position = Vector2(1150, 210)
 shape = SubResource("WorldBoundaryShape2D_35jjp")
 
 [node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("5_35jjp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(581, 615)
 shape = SubResource("WorldBoundaryShape2D_enb46")
+
+[node name="MountainBackground" parent="." instance=ExtResource("6_enb46")]

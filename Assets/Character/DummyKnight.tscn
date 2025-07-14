@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://m47tc1dqutk4"]
+[gd_scene load_steps=89 format=3 uid="uid://m47tc1dqutk4"]
 
 [ext_resource type="Texture2D" uid="uid://boll7xjxkscqh" path="res://Assets/Character/MC/assets/Colour1/NoOutline/120x80_PNGSheets/_Dash.png" id="1_crvi4"]
 [ext_resource type="Script" uid="uid://bt82kmp8ai4gr" path="res://Assets/Character/DummyKnight.cs" id="1_eiuyu"]
@@ -582,7 +582,11 @@ height = 34.0
 radius = 17.1512
 height = 34.3025
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u11o1"]
+bg_color = Color(0.891381, 0.474484, 5.77569e-07, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
 collision_mask = 3
 platform_floor_layers = 4294967043
 script = ExtResource("1_eiuyu")
@@ -590,9 +594,8 @@ script = ExtResource("1_eiuyu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -21)
 sprite_frames = SubResource("SpriteFrames_dkxli")
-animation = &"dash"
+animation = &"run"
 autoplay = "idle"
-frame_progress = 0.728503
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_knc45")
@@ -607,3 +610,20 @@ position = Vector2(26, -4)
 rotation = 3.14159
 skew = -0.150098
 shape = SubResource("CapsuleShape2D_43cnk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1160
+limit_bottom = 615
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D/CanvasLayer"]
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 172.0
+offset_bottom = 40.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_u11o1")
+value = 100.0

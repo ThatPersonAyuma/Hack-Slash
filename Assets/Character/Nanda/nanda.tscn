@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw5186hd8en7l"]
+
+[ext_resource type="Texture2D" uid="uid://c8ckb8siy0ysg" path="res://Assets/Character/Nanda/Assets/nandaWalk.png" id="1_fotr4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41stg"]
+atlas = ExtResource("1_fotr4")
+region = Rect2(0, 0, 224, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8ky5"]
+atlas = ExtResource("1_fotr4")
+region = Rect2(224, 0, 224, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd4ef"]
+atlas = ExtResource("1_fotr4")
+region = Rect2(448, 0, 224, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvq3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41stg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8ky5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd4ef")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Nanda" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cvq3h")
+animation = &"walk"
+frame = 2
+frame_progress = 0.110266

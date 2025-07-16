@@ -596,6 +596,8 @@ position = Vector2(4, -21)
 sprite_frames = SubResource("SpriteFrames_dkxli")
 animation = &"run"
 autoplay = "idle"
+frame = 8
+frame_progress = 0.204964
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_knc45")

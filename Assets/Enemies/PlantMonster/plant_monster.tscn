@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cteqeoyewtras"]
+[gd_scene load_steps=64 format=3 uid="uid://cteqeoyewtras"]
 
 [ext_resource type="Script" uid="uid://dfm0hc7wcpjmk" path="res://Assets/Enemies/PlantMonster/PlantMonster.cs" id="1_ojwgi"]
 [ext_resource type="Texture2D" uid="uid://b3oygu4jcnbu6" path="res://Assets/Enemies/PlantMonster/assets/Attack1.png" id="1_vgomy"]
@@ -227,7 +227,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack1",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -250,7 +250,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack2",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -403,16 +403,20 @@ height = 43.6685
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y45fl"]
 size = Vector2(39, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4evf4"]
+size = Vector2(39, 35)
+
 [node name="PlantMonster" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_ojwgi")
+WalkingColdown = 2.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_j8tmx")
 animation = &"attack1"
 autoplay = "walk"
-frame_progress = 0.42692
+frame_progress = 0.288569
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -430,3 +434,11 @@ shape = SubResource("RectangleShape2D_y45fl")
 
 [node name="RayCastFloor" parent="." instance=ExtResource("11_4evf4")]
 position = Vector2(-4, 12)
+
+[node name="AreaStartAttack" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaStartAttack"]
+position = Vector2(-21.5, -1)
+shape = SubResource("RectangleShape2D_4evf4")

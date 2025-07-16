@@ -6,6 +6,10 @@ public partial class BringerOfDeath : CharacterBody2D
 	[Export] public float Gravity = 1000;
 	[Export] public float Speed = 50;
 	[Export] public int Direction = -1;
+	[Export] public float WalkingColdown = 1.5F;
+	float WalkingColdownTimer = 0F;
+	string AnimatedName { get; set; }
+	bool IsWalk { get; set; }
 	RayCastFloor rayNode2D { get; set; }
 	Area2D attackArea { get; set; }
 	CollisionShape2D body { get; set; }
@@ -29,11 +33,30 @@ public partial class BringerOfDeath : CharacterBody2D
 		}
 		else
 		{
-			velocity.X = Direction * Speed;
+			if (WalkingColdownTimer > 0)
+			{
+				WalkingColdownTimer -= (float)delta;
+			}
+			else
+			{
+				IsWalk = !IsWalk;
+				WalkingColdownTimer = WalkingColdown;
+			}
+			if (IsWalk)
+			{
+				velocity.X = Direction * Speed;
+				AnimatedName = "walk";
+			}
+			else
+			{
+				velocity.X = 0;
+				AnimatedName = "idle";
+			}
 		}
 		Velocity = velocity;
 		GD.Print($"IsInFloor: {IsOnFloorVal}, velocity: {Velocity}, direction: {Direction}");
 		MoveAndSlide();
+		animatedSprite2D.Play(AnimatedName);
 		//GD.Print(Velocity);
 	}
 	// void CharMove(Vector2 velocity)

@@ -21,8 +21,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"Nanda": "res://Dialog/Character/Nanda.dch"
+}
+directories/dtl_directory={
+"prolog": "res://Dialog/prolog.dtl"
+}
 layout/style_directory={}
 
 [dotnet]

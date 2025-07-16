@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn7eol00wtrea"]
+
+[ext_resource type="Script" uid="uid://beofe5emwdjof" path="res://Assets/Map/Candi/Assets/cloud.gd" id="1_m7waj"]
+[ext_resource type="Texture2D" uid="uid://c2o4th8jk4reb" path="res://Assets/Map/Candi/Assets/cloud.png" id="2_aia3v"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="cloud" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1150, 0)
+script = ExtResource("1_m7waj")
+
+[node name="Sprite2D" type="Sprite2D" parent="cloud"]
+position = Vector2(575, 324)
+scale = Vector2(1.99653, 2)
+texture = ExtResource("2_aia3v")

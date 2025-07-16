@@ -3,14 +3,16 @@
 [ext_resource type="Script" uid="uid://beofe5emwdjof" path="res://Assets/Map/Candi/Assets/cloud.gd" id="1_m7waj"]
 [ext_resource type="Texture2D" uid="uid://c2o4th8jk4reb" path="res://Assets/Map/Candi/Assets/cloud.png" id="2_aia3v"]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="ParallaxBackground" type="Node"]
 
-[node name="cloud" type="ParallaxLayer" parent="."]
+[node name="Parralax" type="ParallaxBackground" parent="."]
+
+[node name="cloud" type="ParallaxLayer" parent="Parralax"]
 z_index = -1
 motion_mirroring = Vector2(2000, 0)
 script = ExtResource("1_m7waj")
 
-[node name="Sprite2D" type="Sprite2D" parent="cloud"]
+[node name="Sprite2D" type="Sprite2D" parent="Parralax/cloud"]
 position = Vector2(1000, 565.5)
 scale = Vector2(3.47222, 3.49074)
 texture = ExtResource("2_aia3v")

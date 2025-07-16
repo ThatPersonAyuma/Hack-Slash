@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://beofe5emwdjof" path="res://Assets/Map/Candi/Assets/cloud.gd" id="1_m7waj"]
 [ext_resource type="Texture2D" uid="uid://c2o4th8jk4reb" path="res://Assets/Map/Candi/Assets/cloud.png" id="2_aia3v"]
 
-[node name="ParallaxBackground" type="Node"]
+[node name="ParallaxBackground" type="Node2D"]
 
 [node name="Parralax" type="ParallaxBackground" parent="."]
 

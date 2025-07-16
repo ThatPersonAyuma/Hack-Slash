@@ -6,10 +6,11 @@
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="cloud" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(1150, 0)
+z_index = -1
+motion_mirroring = Vector2(2000, 0)
 script = ExtResource("1_m7waj")
 
 [node name="Sprite2D" type="Sprite2D" parent="cloud"]
-position = Vector2(575, 324)
-scale = Vector2(1.99653, 2)
+position = Vector2(1000, 565.5)
+scale = Vector2(3.47222, 3.49074)
 texture = ExtResource("2_aia3v")

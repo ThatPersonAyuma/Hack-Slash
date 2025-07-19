@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://chjwn3v7r8hgo" path="res://Assets/Map/Candi/map_depan_candi.gd" id="1_tq6it"]
 [ext_resource type="PackedScene" uid="uid://m5r7sb67nx48" path="res://Assets/Map/Candi/map_front.tscn" id="2_tq6it"]
 [ext_resource type="PackedScene" uid="uid://dk3pjhgfxasmb" path="res://Assets/Map/Candi/Candi.tscn" id="3_mr2rd"]
-[ext_resource type="PackedScene" uid="uid://m47tc1dqutk4" path="res://Assets/Character/DummyKnight.tscn" id="4_jdrmk"]
+[ext_resource type="PackedScene" uid="uid://cw5186hd8en7l" path="res://Assets/Character/Nanda/nanda.tscn" id="5_tq6it"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q62g0"]
 
@@ -31,14 +31,6 @@ layer = -2
 [node name="CandiLuar" parent="." instance=ExtResource("2_tq6it")]
 position = Vector2(-855, 269)
 scale = Vector2(0.7, 0.7)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_jdrmk")]
-position = Vector2(-30, 947)
-CamLimitLeft = -1225
-CamLimitTop = 0
-CamLimitRight = 1264
-CamLimitBottom = 1055
-ZoomValue = 2.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -68,5 +60,8 @@ shape = SubResource("WorldBoundaryShape2D_tq6it")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-265, 930)
+
+[node name="Nanda" parent="." instance=ExtResource("5_tq6it")]
+position = Vector2(-16, 875)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

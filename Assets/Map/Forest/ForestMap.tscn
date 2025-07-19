@@ -1,8 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://c08qw02gtrje3"]
+[gd_scene load_steps=9 format=4 uid="uid://c08qw02gtrje3"]
 
 [ext_resource type="Texture2D" uid="uid://cumnucpy0g1s8" path="res://Assets/Map/Forest/Assets/Tileset.png" id="1_5lvmf"]
-[ext_resource type="Texture2D" uid="uid://fjp7wsn10x6e" path="res://Assets/Map/Forest/Assets/BG3.png" id="3_j2k5e"]
-[ext_resource type="Texture2D" uid="uid://b6n7opfxlldts" path="res://Assets/Map/Forest/Assets/BG2.png" id="4_2a02g"]
 [ext_resource type="Script" uid="uid://coh3rspw8fn87" path="res://FallBorder.cs" id="5_35jjp"]
 [ext_resource type="PackedScene" uid="uid://13pdh1463v8a" path="res://Assets/Map/Forest/mountain_background.tscn" id="6_enb46"]
 
@@ -68,20 +66,6 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_enb46"]
 
 [node name="DummyMap" type="Node2D"]
-
-[node name="Bg3" type="Sprite2D" parent="."]
-visible = false
-z_index = -1
-position = Vector2(575, 303)
-scale = Vector2(3.59375, 3.59375)
-texture = ExtResource("3_j2k5e")
-
-[node name="Awan" type="Sprite2D" parent="."]
-visible = false
-z_index = -2
-position = Vector2(574, 277)
-scale = Vector2(3.58854, 3.58333)
-texture = ExtResource("4_2a02g")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAABwAAAAAAAAAAAABABwAAAABAAAAAAACABwAAAACAAAAAAADAB0AAAAAAAAAAAAEAB0AAAABAAAAAAAFAB0AAAACAAAAAAAGAB4AAAAAAAAAAAAHAB4AAAABAAAAAAAIAB4AAAACAAAAAAAJAB0AAAAAAAAAAAAKAB0AAAABAAAAAAALAB0AAAACAAAAAAAMABwAAAAAAAAAAAANABwAAAABAAAAAAAOABwAAAACAAAAAAARAB0AAAAAAAAAAAASAB0AAAABAAAAAAATAB0AAAACAAAAAAAWAB4AAAAAAAAAAAAXAB4AAAABAAAAAAAYAB4AAAACAAAAAAAbAB0AAAAAAAAAAAAcAB0AAAABAAAAAAAdAB0AAAACAAAAAAAgABwAAAAAAAAAAAAhABwAAAABAAAAAAAiABwAAAACAAAAAAApABwAAAAAAAAAAAAqABwAAAABAAAAAAArABwAAAACAAAAAAAuAB0AAAAAAAAAAAAvAB0AAAABAAAAAAAwAB0AAAACAAAAAAA0AB4AAAABAAAAAAA1AB4AAAABAAAAAAA2AB4AAAABAAAAAAA3AB4AAAABAAAAAAA4AB4AAAABAAAAAAA5AB4AAAABAAAAAAA6AB4AAAABAAAAAAA7AB4AAAABAAAAAAA8AB4AAAACAAAAAABBAB0AAAABAAAAAABCAB0AAAABAAAAAABDAB0AAAABAAAAAABEAB0AAAABAAAAAABFAB0AAAABAAAAAABGAB0AAAABAAAAAABHAB0AAAACAAAAAAAlABwAAAAAAAAAAAAzAB4AAAAAAAAAAAA/AB0AAAAAAAAAAABAAB0AAAABAAAAAAAmABwAAAACAAAAAAA=")

@@ -15,8 +15,8 @@ public partial class DummyKnight : CharacterBody2D
 	[Export] public double DashEnergy = 100f;
 	[Export] public int CamLimitLeft = -10000000;
 	[Export] public int CamLimitTop = -10000000;
-	[Export] public int CamLimitRight = -10000000;
-	[Export] public int CamLimitBottom = -10000000;
+	[Export] public int CamLimitRight = 10000000;
+	[Export] public int CamLimitBottom = 10000000;
 	[Export] public float ZoomValue = 1F;
 	// End Region of Export
 
@@ -230,7 +230,7 @@ public partial class DummyKnight : CharacterBody2D
 	private async Task CheckAttackArea()
 	{
 		DateTime time1 = DateTime.Now;
-		Godot.Collections.Array<Area2D>  Overlapp = AttackArea.GetOverlappingAreas();
+		Godot.Collections.Array<Node2D>  Overlapp = AttackArea.GetOverlappingBodies();
 		if (Overlapp.Count > 0)
 		{
 			Task freezeTask = FreezeScene(timeScale: 0.005, duration: 0.5);

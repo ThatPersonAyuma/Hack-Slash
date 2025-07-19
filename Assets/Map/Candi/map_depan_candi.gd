@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var CutSceneArea = $Area2D
-@onready var Char = $CharacterBody2D
 var CutScene1:bool = true
 var CutScene2: bool = true
 var CutScene3: bool = true
@@ -12,7 +11,7 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		Global.CanCharMove = false
 		var layout = Dialogic.start("prolog") # Use the name of the STYLE here
 		print(layout.has_signal("timeline_ended"))
-		layout.register_character(load("res://Dialog/Character/Nanda.dch"), $CharacterBody2D)
+		layout.register_character(load("res://Dialog/Character/Nanda.dch"), $Nanda)
 		layout.register_character(load("res://Dialog/Character/Suara Misterius.dch"),$Node2D)
 		#layout.connect("time")
 		$Area2D/CollisionShape2D.queue_free()

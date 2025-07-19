@@ -935,6 +935,7 @@ radius = 3.57662
 height = 146.685
 
 [node name="FrostCurseBoss" type="CharacterBody2D"]
+collision_layer = 4
 
 [node name="RayCastFloor" parent="." instance=ExtResource("1_3fave")]
 position = Vector2(10, 14)

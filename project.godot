@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HackNSlash"
-run/main_scene="uid://cjhcp3w8m6jsa"
+run/main_scene="uid://bkhsfy6e5xdwr"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

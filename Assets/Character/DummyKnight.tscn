@@ -614,11 +614,6 @@ skew = -0.150098
 shape = SubResource("CapsuleShape2D_43cnk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 1160
-limit_bottom = 615
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 

@@ -6,6 +6,7 @@
 [node name="ParallaxBackground" type="Node2D"]
 
 [node name="Parralax" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
 
 [node name="cloud" type="ParallaxLayer" parent="Parralax"]
 z_index = -1

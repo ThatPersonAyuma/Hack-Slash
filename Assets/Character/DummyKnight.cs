@@ -13,6 +13,11 @@ public partial class DummyKnight : CharacterBody2D
 	// [Export] public float ShakeTime = 1f;
 	[Export] public float ShakeAmount = 500f;
 	[Export] public double DashEnergy = 100f;
+	[Export] public int CamLimitLeft = -10000000;
+	[Export] public int CamLimitTop = -10000000;
+	[Export] public int CamLimitRight = -10000000;
+	[Export] public int CamLimitBottom = -10000000;
+	[Export] public float ZoomValue = 1F;
 	// End Region of Export
 
 	// Start Regiob of Attribute
@@ -27,6 +32,7 @@ public partial class DummyKnight : CharacterBody2D
 	Camera2D Cam { get; set; }
 	ProgressBar DashEnergyBar { get; set; }
 	Vector2 CamBasePosition { get; set; }
+	Node GlobalVar { get; set; }
 	int toggle = 1 ;
 	bool IsDash = false;
 	// End Region of Attribute
@@ -38,23 +44,46 @@ public partial class DummyKnight : CharacterBody2D
 		Cam = GetNode<Camera2D>("Camera2D");
 		DashEnergyBar = Cam.GetNode<ProgressBar>("CanvasLayer/ProgressBar");
 		Noise = new();
+		Cam.LimitLeft = CamLimitLeft; Cam.LimitTop = CamLimitTop;
+		Cam.LimitRight = CamLimitRight; Cam.LimitBottom = CamLimitBottom;
+		Cam.Zoom = new Vector2(ZoomValue, ZoomValue);
+		GlobalVar = GetNode<Node>("/root/Global");
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if (Input.IsActionJustPressed("dash") && DashEnergy >= 25)
+		if (!IsOnFloor())
 		{
-			DashEnergy -= 25;
-			DashInput();
+			Vector2 velocity = Velocity;
+			velocity.Y += Gravity * (float)delta;
+			if (velocity.Y > 0)
+			{
+				AnimatedSpriteName = "fall";
+				canChangeAnimate = false;
+			}
+			Velocity = velocity;
+			MoveAndSlide();
 		}
-		if (!IsDash)
+		if ((bool)GlobalVar.Get("CanCharMove"))
 		{
-			AttackInput();
-			if (!IsAttacking) CharacterMove(delta: delta);
+			if (Input.IsActionJustPressed("dash") && DashEnergy >= 25)
+			{
+				DashEnergy -= 25;
+				DashInput();
+			}
+			if (!IsDash)
+			{
+				AttackInput();
+				if (!IsAttacking) CharacterMove(delta: delta);
+			}
+			else
+			{
+				MoveAndSlide();
+			}
 		}
 		else
 		{
-			MoveAndSlide();
+			AnimatedSpriteName = "idle";
 		}
 		sprite.Play(AnimatedSpriteName);
 		if (DashEnergy < 100)
@@ -106,16 +135,8 @@ public partial class DummyKnight : CharacterBody2D
 		bool IsOnFloorVal = IsOnFloor();
 		float direction = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
 		// Gravity
-		if (!IsOnFloorVal)
-		{
-			velocity.Y += Gravity * (float)delta;
-			if (velocity.Y > 0)
-			{
-				AnimatedSpriteName = "fall";
-				canChangeAnimate = false;
-			}
-		}
-		else// default "ui_accept" = Space
+		
+		if(IsOnFloor())// default "ui_accept" = Space
 		{
 			if (Input.IsActionPressed("ui_accept"))
 			{

@@ -17,17 +17,26 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Global="*res://Global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
 directories/dch_directory={
-"Nanda": "res://Dialog/Character/Nanda.dch"
+"Nanda": "res://Dialog/Character/Nanda.dch",
+"Suara Misterius": "res://Dialog/Character/Suara Misterius.dch"
 }
 directories/dtl_directory={
-"prolog": "res://Dialog/prolog.dtl"
+"prolog": "res://Dialog/prolog.dtl",
+"prolog2": "res://Dialog/prolog2.dtl",
+"prolog3": "res://Dialog/prolog3.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"FloatBaloon": "res://Dialog/TextBox/FloatBaloon.tres"
+}
+layout/style_list=["res://Dialog/TextBox/FloatBaloon.tres"]
+layout/default_style="res://Dialog/TextBox/FloatBaloon.tres"
+glossary/default_case_sensitive=true
 
 [dotnet]
 

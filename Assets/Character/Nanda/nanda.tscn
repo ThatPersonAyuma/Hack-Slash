@@ -432,7 +432,7 @@ position = Vector2(0, -42)
 sprite_frames = SubResource("SpriteFrames_avw5f")
 animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.503009
+frame_progress = 0.00202409
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -11)

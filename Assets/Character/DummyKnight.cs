@@ -48,6 +48,7 @@ public partial class DummyKnight : CharacterBody2D
 		Cam.LimitRight = CamLimitRight; Cam.LimitBottom = CamLimitBottom;
 		Cam.Zoom = new Vector2(ZoomValue, ZoomValue);
 		GlobalVar = GetNode<Node>("/root/Global");
+		GlobalVar.Set("Player", this);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -230,7 +231,7 @@ public partial class DummyKnight : CharacterBody2D
 	private async Task CheckAttackArea()
 	{
 		DateTime time1 = DateTime.Now;
-		Godot.Collections.Array<Node2D>  Overlapp = AttackArea.GetOverlappingBodies();
+		Godot.Collections.Array<Area2D>  Overlapp = AttackArea.GetOverlappingAreas();
 		if (Overlapp.Count > 0)
 		{
 			Task freezeTask = FreezeScene(timeScale: 0.005, duration: 0.5);

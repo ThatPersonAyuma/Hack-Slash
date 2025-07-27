@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2o4th8jk4reb" path="res://Assets/Map/Candi/Assets/cloud.png" id="2_aia3v"]
 
 [node name="ParallaxBackground" type="Node2D"]
+visible = false
 
 [node name="Parralax" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true

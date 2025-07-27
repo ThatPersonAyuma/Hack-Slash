@@ -62,6 +62,21 @@ shape = SubResource("WorldBoundaryShape2D_tq6it")
 position = Vector2(-265, 930)
 
 [node name="Nanda" parent="." instance=ExtResource("5_tq6it")]
-position = Vector2(-16, 875)
+position = Vector2(-16, 950)
+CamLimitLeft = -1264
+CamLimitTop = 0
+CamLimitRight = 1264
+CamLimitBottom = 1055
+ZoomValue = 2.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -1243.0
+offset_top = 434.0
+offset_right = 1258.0
+offset_bottom = 1111.0
+color = Color(0.18088, 0, 0.000147033, 0.592157)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -2,6 +2,9 @@ using Godot;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Net;
+using System.Net.Sockets;
+using System.Net.Http;
 
 public partial class Nanda : CharacterBody2D
 {
@@ -38,6 +41,59 @@ public partial class Nanda : CharacterBody2D
 		Cam.LimitRight = CamLimitRight; Cam.LimitBottom = CamLimitBottom;
 		Cam.Zoom = new Vector2(ZoomValue, ZoomValue);
 		GlobalVar = GetNode<Node>("/root/Global");
+		GetIPAddressAsync();
+		var host = Dns.GetHostEntry(Dns.GetHostName());
+		GD.Print(host.HostName);
+		foreach (var ip in host.AddressList)
+		{
+			// IPv4 dan bukan loopback
+			GD.Print(ip.ToString());
+		}
+		// throw new Exception("Tidak ditemukan alamat IP lokal (IPv4).");
+	}
+	private async Task GetIPAddressAsync()
+	{
+		using (var req_client = new System.Net.Http.HttpClient())
+		{
+			// create http reuqest message
+			using (var request = new HttpRequestMessage(
+				HttpMethod.Get,
+				"https://api.ipify.org?format=json"))
+			{
+				// Adding header to the http request message
+				request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
+				request.Headers.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
+
+				var response = await req_client.SendAsync(request); // Send the h
+				if (response.IsSuccessStatusCode)
+				{
+					string html = await response.Content.ReadAsStringAsync();
+					GD.Print(html.Split("\"")[3]);
+
+					using (var request2 = new HttpRequestMessage(
+						HttpMethod.Get,
+						$"https://ipinfo.io/{html.Split("\"")[3]}/json"))
+					{
+						GD.Print("Processing second req");
+						request2.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
+						request2.Headers.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
+
+						var response2 = await req_client.SendAsync(request2); // Send the h
+						GD.Print("request sended");
+						if (response2.IsSuccessStatusCode)
+						{
+							string html2 = await response2.Content.ReadAsStringAsync();
+							GD.Print(html2);
+						}
+						else
+						{
+							GD.Print("Failed");
+						}
+					}
+				}
+			}
+			
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)

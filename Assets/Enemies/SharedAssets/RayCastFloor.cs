@@ -22,7 +22,6 @@ public partial class RayCastFloor : Node2D
 	{
 		if (!rayCast2D.IsColliding())
 		{
-			GD.Print("Not Collided Triggered");
 			EmitSignal(SignalName.NotCollided);
 		}
 	}

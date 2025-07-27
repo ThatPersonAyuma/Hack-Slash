@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn7eol00wtrea"]
+[gd_scene load_steps=4 format=3 uid="uid://bn7eol00wtrea"]
 
 [ext_resource type="Script" uid="uid://beofe5emwdjof" path="res://Assets/Map/Candi/Assets/cloud.gd" id="1_m7waj"]
 [ext_resource type="Texture2D" uid="uid://c2o4th8jk4reb" path="res://Assets/Map/Candi/Assets/cloud.png" id="2_aia3v"]
+[ext_resource type="Texture2D" uid="uid://dlj3b4t03evb5" path="res://Assets/Map/Candi/Assets/darkCloud.png" id="3_aia3v"]
 
 [node name="ParallaxBackground" type="Node2D"]
 visible = false
@@ -18,3 +19,9 @@ script = ExtResource("1_m7waj")
 position = Vector2(1000, 565.5)
 scale = Vector2(3.47222, 3.49074)
 texture = ExtResource("2_aia3v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parralax/cloud"]
+visible = false
+position = Vector2(1000, 565.5)
+scale = Vector2(3.47222, 3.49074)
+texture = ExtResource("3_aia3v")

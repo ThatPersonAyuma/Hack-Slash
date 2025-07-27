@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://dhfb8k5uqrqkr"]
+
+[ext_resource type="Texture2D" uid="uid://bbnm7drtgab7x" path="res://Assets/Enemies/MacanMiniBoss/Assets/MacanIdle2Fix.png" id="1_6k3ch"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn4gn"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13cdt"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq807"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2tr1"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(768, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujxfq"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(1024, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ony37"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(1280, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmcyf"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(1536, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4rpp"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(1792, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7hi5"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(2048, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugwk2"]
+atlas = ExtResource("1_6k3ch")
+region = Rect2(2304, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nmcyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn4gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13cdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq807")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2tr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujxfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ony37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmcyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4rpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7hi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugwk2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Macan" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nmcyf")
+frame = 8
+frame_progress = 0.555348

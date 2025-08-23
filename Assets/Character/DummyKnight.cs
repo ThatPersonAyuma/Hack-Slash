@@ -33,7 +33,7 @@ public partial class DummyKnight : CharacterBody2D
 	ProgressBar DashEnergyBar { get; set; }
 	Vector2 CamBasePosition { get; set; }
 	Node GlobalVar { get; set; }
-	int toggle = 1 ;
+	int toggle = 1;
 	bool IsDash = false;
 	// End Region of Attribute
 
@@ -49,6 +49,7 @@ public partial class DummyKnight : CharacterBody2D
 		Cam.Zoom = new Vector2(ZoomValue, ZoomValue);
 		GlobalVar = GetNode<Node>("/root/Global");
 		GlobalVar.Set("Player", this);
+		AttackArea.BodyEntered += OnArea2dBodyEntered;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -87,11 +88,13 @@ public partial class DummyKnight : CharacterBody2D
 			AnimatedSpriteName = "idle";
 		}
 		sprite.Play(AnimatedSpriteName);
-		if (DashEnergy < 100)
-		{
-			DashEnergy += 10 * delta;
-			DashEnergyBar.Value = DashEnergy;
-		}
+		// if (DashEnergy < 100)
+		// {
+		// 	DashEnergy += 10 * delta;
+		// 	DashEnergyBar.Value = DashEnergy;
+		// }
+		GD.Print($"McHealth: {(int)GlobalVar.Get("McHealth")}");
+		DashEnergyBar.Value = GlobalVar.Get("McHealth").AsInt64();
 		// ProcessShake();
 	}
 	async Task DashInput()
@@ -136,8 +139,8 @@ public partial class DummyKnight : CharacterBody2D
 		bool IsOnFloorVal = IsOnFloor();
 		float direction = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
 		// Gravity
-		
-		if(IsOnFloor())// default "ui_accept" = Space
+
+		if (IsOnFloor())// default "ui_accept" = Space
 		{
 			if (Input.IsActionPressed("ui_accept"))
 			{
@@ -203,21 +206,19 @@ public partial class DummyKnight : CharacterBody2D
 		AnimatedSpriteName = "attackComboNoMove";
 		IsAttacking = true;
 		AttackArea.Monitoring = true;
-		
-		await ToSignal(GetTree().CreateTimer(0.2), SceneTreeTimer.SignalName.Timeout);
-		// DateTime time1 = DateTime.Now;
 		CheckAttackArea();
+		await ToSignal(GetTree().CreateTimer(0.4), SceneTreeTimer.SignalName.Timeout);
+		// DateTime time1 = DateTime.Now;
+
 		// DateTime time2 = DateTime.Now;
 		// GD.Print($"Time Neede: {time2-time1}");
 
-		await ToSignal(GetTree().CreateTimer(0.2), SceneTreeTimer.SignalName.Timeout);
+		// await ToSignal(GetTree().CreateTimer(0.2), SceneTreeTimer.SignalName.Timeout);
 
 		if (IsDoubleAttacking)
 		{
-			await ToSignal(GetTree().CreateTimer(0.2), SceneTreeTimer.SignalName.Timeout);
 			CheckAttackArea();
-
-			await ToSignal(GetTree().CreateTimer(0.2), SceneTreeTimer.SignalName.Timeout);
+			await ToSignal(GetTree().CreateTimer(0.4), SceneTreeTimer.SignalName.Timeout);
 			AttackArea.Monitoring = false;
 			IsAttacking = false;
 			IsDoubleAttacking = false;
@@ -228,23 +229,29 @@ public partial class DummyKnight : CharacterBody2D
 			IsAttacking = false;
 		}
 	}
-	private async Task CheckAttackArea()
+	private void CheckAttackArea()
 	{
-		DateTime time1 = DateTime.Now;
-		Godot.Collections.Array<Area2D>  Overlapp = AttackArea.GetOverlappingAreas();
+		Godot.Collections.Array<Node2D> Overlapp = AttackArea.GetOverlappingBodies();
 		if (Overlapp.Count > 0)
 		{
-			Task freezeTask = FreezeScene(timeScale: 0.005, duration: 0.5);
-			while (!freezeTask.IsCompleted)
-			{
-				Cam.Offset = new Vector2(Cam.Position.X + 3 * toggle, Cam.Position.Y + 3 * toggle);
-				toggle *= -1;
-				await Task.Delay(100);
-			}
-			Cam.Offset = new Vector2(0, 0);
-			GD.Print("Ada yang overlap");
-			DateTime time2 = DateTime.Now;
-			GD.Print($"Time Neede: {time2-time1}");
+			ShakeEffectAsync();
 		}
 	}
+	private void OnArea2dBodyEntered(Node2D body)
+	{
+		GD.Print(body.Name);
+		ShakeEffectAsync();
+	}
+	private async Task ShakeEffectAsync()
+	{
+		Task freezeTask = FreezeScene(timeScale: 0.005, duration: 0.1);
+		while (!freezeTask.IsCompleted)
+		{
+			Cam.Offset = new Vector2(Cam.Position.X + 3 * toggle, Cam.Position.Y + 3 * toggle);
+			toggle *= -1;
+			await Task.Delay(75);
+		}
+		Cam.Offset = new Vector2(0, 0);
+		GD.Print("Ada yang overlap");
+}
 }

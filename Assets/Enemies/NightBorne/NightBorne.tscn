@@ -714,6 +714,7 @@ collision_layer = 4
 [node name="Wave" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_oy42b")
 animation = &"playing"
+frame_progress = 0.125275
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(10, 33)

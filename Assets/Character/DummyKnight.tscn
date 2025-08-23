@@ -1,7 +1,7 @@
 [gd_scene load_steps=89 format=3 uid="uid://m47tc1dqutk4"]
 
 [ext_resource type="Texture2D" uid="uid://boll7xjxkscqh" path="res://Assets/Character/MC/assets/Colour1/NoOutline/120x80_PNGSheets/_Dash.png" id="1_crvi4"]
-[ext_resource type="Script" uid="uid://bt82kmp8ai4gr" path="res://Assets/Character/DummyKnight.cs" id="1_eiuyu"]
+[ext_resource type="Script" uid="uid://cwkm34580dure" path="res://Assets/Character/MC/dummy_knight.gd" id="1_u11o1"]
 [ext_resource type="Texture2D" uid="uid://6hy2a1pdgq5h" path="res://Assets/Character/MC/assets/Colour1/NoOutline/120x80_PNGSheets/_Idle.png" id="2_eiuyu"]
 [ext_resource type="Texture2D" uid="uid://dba710yoavb1o" path="res://Assets/Character/MC/assets/Colour2/NoOutline/120x80_PNGSheets/_Attack.png" id="2_u11o1"]
 [ext_resource type="Texture2D" uid="uid://cc4fwvo1p5s1y" path="res://Assets/Character/MC/assets/Colour2/NoOutline/120x80_PNGSheets/_Attack2NoMovement.png" id="3_dt6m2"]
@@ -583,29 +583,29 @@ radius = 17.1512
 height = 34.3025
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u11o1"]
-bg_color = Color(0.891381, 0.474484, 5.77569e-07, 1)
+bg_color = Color(0.705882, 0.176471, 0, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
 platform_floor_layers = 4294967043
-script = ExtResource("1_eiuyu")
+script = ExtResource("1_u11o1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -21)
 sprite_frames = SubResource("SpriteFrames_dkxli")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
-frame = 8
-frame_progress = 0.204964
+frame_progress = 0.489683
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_knc45")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
-monitoring = false
 
 [node name="AttackShape" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(26, -4)
@@ -614,8 +614,10 @@ skew = -0.150098
 shape = SubResource("CapsuleShape2D_43cnk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+visible = false
 
 [node name="ProgressBar" type="ProgressBar" parent="Camera2D/CanvasLayer"]
 offset_left = 15.0
@@ -624,3 +626,6 @@ offset_right = 172.0
 offset_bottom = 40.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_u11o1")
 value = 100.0
+show_percentage = false
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

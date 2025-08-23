@@ -1,8 +1,12 @@
-[gd_scene load_steps=77 format=3 uid="uid://cw3e4i4gm2o2w"]
+[gd_scene load_steps=78 format=3 uid="uid://cw3e4i4gm2o2w"]
 
 [ext_resource type="Texture2D" uid="uid://cbapcpy33ub8s" path="res://Assets/Enemies/BringerOfDeath/Assets.png" id="1_vogkn"]
-[ext_resource type="Script" uid="uid://b6jm0n37h0rbc" path="res://Assets/Enemies/BringerOfDeath/BringerOfDeath.cs" id="1_xbqwm"]
+[ext_resource type="Script" uid="uid://dc4sb7wv7fk62" path="res://Assets/Enemies/BringerOfDeath/bringer_of_death.gd" id="1_xbqwm"]
 [ext_resource type="PackedScene" uid="uid://uys8h8ycti1w" path="res://Assets/Enemies/SharedAssets/ray_cast_floor.tscn" id="3_bjs53"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lbgoc"]
+a = Vector2(47, 31)
+b = Vector2(23, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdbxq"]
 atlas = ExtResource("1_vogkn")
@@ -121,80 +125,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"range_attack",
-"speed": 7.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3o0ei"]
 size = Vector2(20, 50.5)
-
-[sub_resource type="Animation" id="Animation_bjs53"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node/AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"melee_attack"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node/MeleeArea:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_xbqwm"]
-resource_name = "meleeAttack"
-length = 1.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node/AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.56667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [&"melee_attack", &"walk"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node/MeleeArea:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.633333, 1.53333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfgvh"]
-_data = {
-&"RESET": SubResource("Animation_bjs53"),
-&"meleeAttack": SubResource("Animation_xbqwm")
-}
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1v3r"]
-radius = 26.1641
-height = 94.2022
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slp6i"]
-radius = 9.0
-height = 50.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fea32"]
 atlas = ExtResource("1_vogkn")
@@ -528,7 +463,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"range_attack",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -560,19 +495,143 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_lbgoc"]
-a = Vector2(47, 31)
-b = Vector2(23, 31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbqwm"]
+size = Vector2(185.563, 56.25)
+
+[sub_resource type="Animation" id="Animation_bjs53"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"melee_attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, 7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Body:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeleeArea:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xbqwm"]
+resource_name = "melee_Attack"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"melee_attack", &"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 0.933333, 1.33333, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(36, 7), Vector2(27, 11), Vector2(27, 11), Vector2(36, 7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Body:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6, 0.8, 1.2, 1.33333, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.471239, -0.471239, 0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeleeArea:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667, 1.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfgvh"]
+_data = {
+&"RESET": SubResource("Animation_bjs53"),
+&"melee_Attack": SubResource("Animation_xbqwm")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1v3r"]
+radius = 26.1641
+height = 94.2022
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slp6i"]
+radius = 9.0
+height = 50.0
 
 [node name="BringerOfDeath" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_xbqwm")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_lbgoc")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(200, 0)
+collision_mask = 3
+
 [node name="ranged_attack" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -19)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_0n733")
 animation = &"range_attack"
-frame = 2
-frame_progress = 0.0108283
+frame_progress = 0.452031
 
 [node name="ranged_area" type="Area2D" parent="ranged_attack"]
 position = Vector2(0, 47)
@@ -584,37 +643,48 @@ monitoring = false
 position = Vector2(-6, -27.75)
 shape = SubResource("RectangleShape2D_3o0ei")
 
-[node name="RayCastFloor" parent="." instance=ExtResource("3_bjs53")]
-position = Vector2(19, 26)
+[node name="PivotNode" type="Node2D" parent="."]
 
-[node name="Node" type="Node2D" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_hfgvh")
-}
-
-[node name="MeleeArea" type="Area2D" parent="Node"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/MeleeArea"]
-position = Vector2(-6, -4)
-rotation = 0.958186
-shape = SubResource("CapsuleShape2D_h1v3r")
-
-[node name="Area2D" type="Area2D" parent="Node"]
-
-[node name="Body" type="CollisionShape2D" parent="Node/Area2D"]
-position = Vector2(36, 7)
-shape = SubResource("CapsuleShape2D_slp6i")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PivotNode"]
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_sjino")
 animation = &"melee_attack"
 autoplay = "walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("SegmentShape2D_lbgoc")
+[node name="RayCastFloor" parent="PivotNode" instance=ExtResource("3_bjs53")]
+position = Vector2(19, 26)
+
+[node name="AreaAttackStart" type="Area2D" parent="PivotNode"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PivotNode/AreaAttackStart"]
+position = Vector2(36, 4.125)
+shape = SubResource("RectangleShape2D_xbqwm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PivotNode"]
+libraries = {
+&"": SubResource("AnimationLibrary_hfgvh")
+}
+
+[node name="MeleeArea" type="Area2D" parent="PivotNode"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PivotNode/MeleeArea"]
+position = Vector2(-6, -4)
+rotation = 0.958186
+shape = SubResource("CapsuleShape2D_h1v3r")
+
+[node name="Area2D" type="Area2D" parent="PivotNode"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Body" type="CollisionShape2D" parent="PivotNode/Area2D"]
+position = Vector2(36, 7)
+shape = SubResource("CapsuleShape2D_slp6i")
+
+[connection signal="body_entered" from="ranged_attack/ranged_area" to="." method="_on_ranged_area_body_entered"]
+[connection signal="body_entered" from="PivotNode/AreaAttackStart" to="." method="_on_attacking_area_body_entered"]
+[connection signal="body_exited" from="PivotNode/AreaAttackStart" to="." method="_on_attacking_area_body_exited"]
+[connection signal="body_entered" from="PivotNode/MeleeArea" to="." method="_on_attack_range_body_entered"]

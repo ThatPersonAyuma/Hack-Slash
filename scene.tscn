@@ -39,7 +39,7 @@ visible = false
 position = Vector2(843, 302)
 scale = Vector2(1.3, 1.3)
 
-[node name="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("1_nxogm")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_nxogm")]
 visible = false
 position = Vector2(25, 428)
 ShakeAmount = 300.0

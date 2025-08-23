@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw8r1pyv7kln8"
-path="res://.godot/imported/tiles-jungle.png-2f144170771da9396e0c6fa1be9c0777.ctex"
+uid="uid://c8agwjbc0ljt8"
+path="res://.godot/imported/Enviroment.png-5c406ffe2511ac05f47e16f24ffd7819.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Map/Shared Asset/Temple asset/tiles-jungle.png"
-dest_files=["res://.godot/imported/tiles-jungle.png-2f144170771da9396e0c6fa1be9c0777.ctex"]
+source_file="res://Assets/Map/Shared Asset/Temple asset/Enviroment.png"
+dest_files=["res://.godot/imported/Enviroment.png-5c406ffe2511ac05f47e16f24ffd7819.ctex"]
 
 [params]
 

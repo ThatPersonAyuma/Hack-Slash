@@ -247,4 +247,5 @@ public partial class DummyKnight : CharacterBody2D
 			GD.Print($"Time Neede: {time2-time1}");
 		}
 	}
+	
 }

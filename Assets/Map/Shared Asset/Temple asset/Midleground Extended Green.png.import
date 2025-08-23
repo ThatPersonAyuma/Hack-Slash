@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb65r2lpvf6gd"
-path="res://.godot/imported/reruntuhan orange.png-83499353b477d1db7401bb7dc532ec1b.ctex"
+uid="uid://ih8rh8708yvn"
+path="res://.godot/imported/Midleground Extended Green.png-52d2fcc87f6125a3ee5b2f627b043efc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Map/Shared Asset/Temple asset/reruntuhan orange.png"
-dest_files=["res://.godot/imported/reruntuhan orange.png-83499353b477d1db7401bb7dc532ec1b.ctex"]
+source_file="res://Assets/Map/Shared Asset/Temple asset/Midleground Extended Green.png"
+dest_files=["res://.godot/imported/Midleground Extended Green.png-52d2fcc87f6125a3ee5b2f627b043efc.ctex"]
 
 [params]
 

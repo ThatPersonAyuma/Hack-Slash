@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx7xsco17n6t"
-path="res://.godot/imported/reruntuhan.png-871ef438775a72ceea7380e403a1db30.ctex"
+uid="uid://dfnwgik4mbb38"
+path="res://.godot/imported/Buildings.png-22500fa4d122a4478d2ae4cf583dc659.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Map/Shared Asset/Temple asset/reruntuhan.png"
-dest_files=["res://.godot/imported/reruntuhan.png-871ef438775a72ceea7380e403a1db30.ctex"]
+source_file="res://Assets/Map/Shared Asset/Temple asset/Buildings.png"
+dest_files=["res://.godot/imported/Buildings.png-22500fa4d122a4478d2ae4cf583dc659.ctex"]
 
 [params]
 

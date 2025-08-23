@@ -28,3 +28,10 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		#layout.register_character(load("res://Dialog/Character/Nanda.dch"), $CharacterBody2D)
 		$Area2D/CollisionShape2D2.queue_free()
 		CutScene3 = false
+
+# ini ke map ijo yang running
+#	Global.change_scene("res://dalam temple.tscn") # Replace with function body.
+
+
+# ini ke map menuju desa 
+#res://hutan_stage_1.tscn

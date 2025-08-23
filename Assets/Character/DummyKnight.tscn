@@ -585,7 +585,7 @@ height = 34.3025
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u11o1"]
 bg_color = Color(0.705882, 0.176471, 0, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 3
 platform_floor_layers = 4294967043

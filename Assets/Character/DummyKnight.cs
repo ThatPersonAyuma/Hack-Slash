@@ -234,24 +234,17 @@ public partial class DummyKnight : CharacterBody2D
 		Godot.Collections.Array<Node2D> Overlapp = AttackArea.GetOverlappingBodies();
 		if (Overlapp.Count > 0)
 		{
-			ShakeEffectAsync();
+			Task freezeTask = FreezeScene(timeScale: 0.005, duration: 0.5);
+			while (!freezeTask.IsCompleted)
+			{
+				Cam.Offset = new Vector2(Cam.Position.X + 3 * toggle, Cam.Position.Y + 3 * toggle);
+				toggle *= -1;
+				await Task.Delay(100);
+			}
+			Cam.Offset = new Vector2(0, 0);
+			GD.Print("Ada yang overlap");
+			DateTime time2 = DateTime.Now;
+			GD.Print($"Time Neede: {time2-time1}");
 		}
 	}
-	private void OnArea2dBodyEntered(Node2D body)
-	{
-		GD.Print(body.Name);
-		ShakeEffectAsync();
-	}
-	private async Task ShakeEffectAsync()
-	{
-		Task freezeTask = FreezeScene(timeScale: 0.005, duration: 0.1);
-		while (!freezeTask.IsCompleted)
-		{
-			Cam.Offset = new Vector2(Cam.Position.X + 3 * toggle, Cam.Position.Y + 3 * toggle);
-			toggle *= -1;
-			await Task.Delay(75);
-		}
-		Cam.Offset = new Vector2(0, 0);
-		GD.Print("Ada yang overlap");
-}
 }

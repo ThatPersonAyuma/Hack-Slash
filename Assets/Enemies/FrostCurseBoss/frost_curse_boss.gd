@@ -81,7 +81,6 @@ func _physics_process(delta: float) -> void:
 		#print("Body: ", BodyEntered);
 		#print("Direction: ", Direction," left: ", $EndPointLeft/RayCast2D.is_colliding(), " right: ", $EndPointRight/RayCast2D.is_colliding())
 		move_and_slide();
-	print("Nyawa: ", HP_pool)
 	#print(Global.McHealth)
 
 func check_player_in_range_area():

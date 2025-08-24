@@ -28,3 +28,6 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		#layout.register_character(load("res://Dialog/Character/Nanda.dch"), $CharacterBody2D)
 		$Area2D/CollisionShape2D2.queue_free()
 		CutScene3 = false
+
+
+# Global.change_scene("res://Assets/Map/Candi/MapDepanCandi.tscn")

@@ -7,5 +7,3 @@ script = ExtResource("1_ltkg2")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 20)
-
-[node name="Line2D" type="Line2D" parent="."]

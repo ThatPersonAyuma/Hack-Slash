@@ -546,7 +546,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_xbqwm"]
@@ -598,7 +598,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.666667, 1.36667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, true]
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hfgvh"]
@@ -620,6 +620,7 @@ collision_layer = 4
 script = ExtResource("1_xbqwm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("SegmentShape2D_lbgoc")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -670,6 +671,7 @@ libraries = {
 [node name="MeleeArea" type="Area2D" parent="PivotNode"]
 collision_layer = 0
 collision_mask = 2
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PivotNode/MeleeArea"]
 position = Vector2(-6, -4)
@@ -687,4 +689,5 @@ shape = SubResource("CapsuleShape2D_slp6i")
 [connection signal="body_entered" from="ranged_attack/ranged_area" to="." method="_on_ranged_area_body_entered"]
 [connection signal="body_entered" from="PivotNode/AreaAttackStart" to="." method="_on_attacking_area_body_entered"]
 [connection signal="body_exited" from="PivotNode/AreaAttackStart" to="." method="_on_attacking_area_body_exited"]
+[connection signal="animation_finished" from="PivotNode/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="PivotNode/MeleeArea" to="." method="_on_attack_range_body_entered"]

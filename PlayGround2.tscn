@@ -54,7 +54,7 @@ tile_map_data = PackedByteArray("AADy/z0AAQAAAAIAAADy/z4AAQAAAAMAAADz/zwAAQABAAM
 tile_set = SubResource("TileSet_12i17")
 
 [node name="BringerOfDeath" parent="." instance=ExtResource("5_tpvjo")]
-position = Vector2(-273, 894)
+position = Vector2(-439, 895)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

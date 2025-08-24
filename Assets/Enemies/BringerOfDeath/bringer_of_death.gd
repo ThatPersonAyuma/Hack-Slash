@@ -39,34 +39,49 @@ func _physics_process(delta: float) -> void:
 		if (!IsOnFloorVal):
 			Velocity.y += Gravity * delta
 		else:
-			if (BodyEntered && !IsAttacking && ChargeRunningColdown >= ChargeColdown/2):
+			Velocity.x = 0
+			Velocity.y = 0
+			if (BodyEntered && !IsAttacking && ChargeRunningColdown >= ChargeColdown):
 				#if (Direction==-1 && $EndPointLeft/RayCast2D.is_colliding()):
 				pst = (Global.Player.global_position.x - global_position.x) * Direction 
 				if (pst<0):
 					change_direction()
+				attack_player()
 			else:
 				ChargeRunningColdown += delta
 			if (!IsAttacking):
-				if (abs(Global.Player.global_position.y - global_position.y)<=20):
-					pass
+				if(!BodyEntered):
+					if (abs(Global.Player.global_position.y - global_position.y)<=20):
+						pst = (Global.Player.global_position.x - global_position.x) * Direction 
+						if (pst<0):
+							change_direction()
+						animatedSprite2D.play("walk");
+						Velocity.x = Speed*Direction;
+					else:
+						if (WalkingColdownTimer > 0):
+							WalkingColdownTimer -= delta
+						else:
+							IsWalk = !IsWalk;
+							WalkingColdownTimer = WalkingColdown;
+						if (IsWalk):
+							Velocity.x = Direction * Speed;
+							AnimatedName = "walk";
+						else:
+							Velocity.x = 0;
+							AnimatedName = "idle";
+						#check_player_in_range_area()
+						animatedSprite2D.play(AnimatedName);
 				else:
-					if (WalkingColdownTimer > 0):
-						WalkingColdownTimer -= delta
-					else:
-						IsWalk = !IsWalk;
-						WalkingColdownTimer = WalkingColdown;
-					if (IsWalk):
-						Velocity.x = Direction * Speed;
-						AnimatedName = "walk";
-					else:
-						Velocity.x = 0;
-						AnimatedName = "idle";
-					check_player_in_range_area()
-					animatedSprite2D.play(AnimatedName);
+					animatedSprite2D.play("idle")
 		velocity = Velocity;
-		#print("Direction: ", Direction," left: ", $EndPointLeft/RayCast2D.is_colliding(), " right: ", $EndPointRight/RayCast2D.is_colliding())
+				#print("Direction: ", Direction," left: ", $EndPointLeft/RayCast2D.is_colliding(), " right: ", $EndPointRight/RayCast2D.is_colliding())
 		move_and_slide();
 	#print(Global.McHealth)
+
+func attack_player():
+	IsAttacking = true
+	animation_player.play("melee_Attack")
+	
 
 func check_player_in_range_area():
 	var distance = global_position.distance_to(Global.Player.global_position)
@@ -122,11 +137,6 @@ func take_damage(dmg_taken: int):
 func _on_attacking_area_body_exited(_body: Node2D) -> void:
 	BodyEntered = false # Replace with function body.
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	IsAttacking = false
-	if (anim_name == "attack"):
-		global_position = Vector2(global_position.x+70*Direction, global_position.y)
-	 # Replace with function body.
 
 func _on_attack_range_body_entered(_body: Node2D) -> void:
 	print("Hit") # Replace with function body.
@@ -137,3 +147,7 @@ func _on_attack_range_body_entered(_body: Node2D) -> void:
 func _on_ranged_area_body_entered(body: Node2D) -> void:
 	print(body.name)
 	print("Hit by ranged attack") # Replace with function body.
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	IsAttacking = false # Replace with function body.

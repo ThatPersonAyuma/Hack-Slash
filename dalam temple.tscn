@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bq40ylab8e7di"]
+[gd_scene load_steps=41 format=4 uid="uid://cdd7fiuyvn3kg"]
 
 [ext_resource type="Script" uid="uid://mojiesyxr4w7" path="res://dalam_temple.gd" id="1_0gfcw"]
 [ext_resource type="PackedScene" uid="uid://m47tc1dqutk4" path="res://Assets/Character/DummyKnight.tscn" id="1_qq4y7"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dxx75yferpuym" path="res://Assets/Map/Shared Asset/Temple asset/Reruntuhan yang dipakai.png" id="6_l3mfn"]
 [ext_resource type="Texture2D" uid="uid://cf5nsu5406ljg" path="res://Assets/Map/Shared Asset/Temple asset/Duri.png" id="7_qe0qc"]
 [ext_resource type="Texture2D" uid="uid://8inynw5y4de2" path="res://Assets/Map/Shared Asset/Temple asset/ada patungnya.png" id="10_ykyo5"]
-[ext_resource type="PackedScene" uid="uid://m7d4l51pmoqv" path="res://Assets/Map/Forest/forestbackground_parallax.tscn" id="13_ex2s3"]
+[ext_resource type="PackedScene" path="res://Assets/Map/Forest/forestbackground_parallax.tscn" id="13_ex2s3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0gfcw"]
 

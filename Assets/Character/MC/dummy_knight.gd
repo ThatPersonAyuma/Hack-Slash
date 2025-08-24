@@ -25,14 +25,16 @@ var attack_area: Area2D
 var sprite: AnimatedSprite2D
 var noise := FastNoiseLite.new()
 var cam: Camera2D
-var dash_energy_bar: ProgressBar
+var health_bar: ProgressBar
 var cam_base_position: Vector2
+var dash_bar: ProgressBar
 
 func _ready():
 	sprite = $AnimatedSprite2D
 	attack_area = $Area2D
 	cam = $Camera2D
-	dash_energy_bar = cam.get_node("CanvasLayer/ProgressBar")
+	health_bar = cam.get_node("CanvasLayer/ProgressBar")
+	dash_bar = $Camera2D/CanvasLayer2/ProgressBar
 	cam.limit_left = CamLimitLeft
 	cam.limit_top = CamLimitTop
 	cam.limit_right = CamLimitRight
@@ -60,9 +62,13 @@ func _physics_process(delta):
 			move_and_slide()
 	else:
 		animated_sprite_name = "idle"
-
+	if DashEnergy < 100:
+		DashEnergy+=10*delta
+		if DashEnergy >= 100:
+			DashEnergy = 100
 	sprite.play(animated_sprite_name)
-	dash_energy_bar.value = Global.McHealth
+	health_bar.value = Global.McHealth
+	dash_bar.value = DashEnergy
 
 func dash_input() -> void:
 	var direction = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

@@ -651,6 +651,7 @@ position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_sjino")
 animation = &"melee_attack"
 autoplay = "walk"
+frame_progress = 0.0793003
 
 [node name="RayCastFloor" parent="PivotNode" instance=ExtResource("3_bjs53")]
 position = Vector2(19, 26)

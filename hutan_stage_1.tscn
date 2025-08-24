@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dfnwgik4mbb38" path="res://Assets/Map/Shared Asset/Temple asset/Buildings.png" id="1_oulai"]
 [ext_resource type="Texture2D" uid="uid://brvbe63ta7x8b" path="res://Assets/Map/Shared Asset/Temple asset/Interior-01.png" id="2_n7r4x"]
 [ext_resource type="PackedScene" uid="uid://m47tc1dqutk4" path="res://Assets/Character/DummyKnight.tscn" id="4_n7r4x"]
-[ext_resource type="Texture2D" uid="uid://bsg8grm2f4r6q" path="res://Assets/Map/Shared Asset/Temple asset/Background Extended Green.png" id="5_h2dc3"]
+[ext_resource type="PackedScene" uid="uid://cpoj5k34jj0u1" path="res://backgroud_stage_1_kepedesaan.tscn" id="5_h2dc3"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_rwmbn"]
 tile_data = PackedInt32Array(131072, 1441794, 13, 196608, 1441794, 14, 262144, 1441794, 15, 327680, 1441794, 16, 655360, 1441794, 21, 1, 1507330, 11, 65537, 1507330, 12, 131073, 1507330, 13, 196609, 1507330, 14, 262145, 1507330, 15, 327681, 1507330, 16, 393217, 1507330, 17, 524289, 1507330, 19, 589825, 1507330, 20, 655361, 1507330, 21, 2, 1572866, 11, 65538, 1572866, 12, 131074, 1572866, 13, 196610, 1572866, 14, 262146, 1572866, 15, 327682, 1572866, 16, 393218, 1572866, 17, 458754, 1572866, 18, 524290, 1572866, 19, 589826, 1572866, 20, 655362, 1572866, 21, 3, 1638402, 11, 65539, 1638402, 12, 131075, 1638402, 13, 196611, 1638402, 14, 262147, 1638402, 15, 327683, 1638402, 16, 393219, 1638402, 17, 458755, 1638402, 18, 524291, 1638402, 19, 589827, 1638402, 20, 655363, 1638402, 21, 4, 1703938, 11, 65540, 1703938, 12, 131076, 1703938, 13, 196612, 1703938, 14, 262148, 1703938, 15, 327684, 1703938, 16, 393220, 1703938, 17, 458756, 1703938, 18, 524292, 1703938, 19, 589828, 1703938, 20, 655364, 1703938, 21, 5, 1769474, 11, 65541, 1769474, 12, 131077, 1769474, 13, 196613, 1769474, 14, 262149, 1769474, 15, 327685, 1769474, 16, 393221, 1769474, 17, 458757, 1769474, 18, 524293, 1769474, 19, 589829, 1769474, 20, 655365, 1769474, 21, 6, 1835010, 11, 65542, 1835010, 12, 131078, 1835010, 13, 196614, 1835010, 14, 262150, 1835010, 15, 327686, 1835010, 16, 393222, 1835010, 17, 589830, 1835010, 20, 655366, 1835010, 21, 7, 1900546, 11, 65543, 1900546, 12, 131079, 1900546, 13, 196615, 1900546, 14, 262151, 1900546, 15, 327687, 1900546, 16, 393223, 1900546, 17, 458759, 1900546, 18, 589831, 1900546, 20, 655367, 1900546, 21, 8, 1966082, 11, 65544, 1966082, 12, 131080, 1966082, 13, 196616, 1966082, 14, 262152, 1966082, 15, 327688, 1966082, 16, 393224, 1966082, 17, 589832, 1966082, 20, 655368, 1966082, 21, 9, 2031618, 11, 65545, 2031618, 12, 131081, 2031618, 13, 196617, 2031618, 14, 262153, 2031618, 15, 327689, 2031618, 16, 393225, 2031618, 17, 589833, 2031618, 20, 655369, 2031618, 21)
@@ -7299,13 +7299,4 @@ autoplay = "Lift tower kayu"
 [node name="CharacterBody2D2" parent="." instance=ExtResource("4_n7r4x")]
 position = Vector2(-2840, 1631)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-3886, 1268)
-scale = Vector2(3, 3)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(186.333, 288.667)
-texture = ExtResource("5_h2dc3")
-offset = Vector2(15, 0)
+[node name="Backgroud stage 1" parent="." instance=ExtResource("5_h2dc3")]

@@ -7,12 +7,34 @@
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Paling belakang\\" type="Parallax2D" parent="ParallaxBackground"]
+[node name="belakang" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(400, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Paling belakang\\"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/belakang"]
 texture = ExtResource("1_1se6o")
+centered = false
 
-[node name="middle" type="Parallax2D" parent="ParallaxBackground"]
+[node name="belakang2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/middle"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/belakang2"]
+texture = ExtResource("1_1se6o")
+centered = false
+
+[node name="depan" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/depan"]
 texture = ExtResource("2_6v3kh")
+centered = false
+
+[node name="depan2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/depan2"]
+texture = ExtResource("2_6v3kh")
+centered = false

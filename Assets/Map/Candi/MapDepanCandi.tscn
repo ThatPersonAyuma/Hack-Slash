@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkhsfy6e5xdwr"]
+[gd_scene load_steps=12 format=3 uid="uid://bkhsfy6e5xdwr"]
 
 [ext_resource type="PackedScene" uid="uid://bn7eol00wtrea" path="res://Assets/Map/Candi/cloud_parallax.tscn" id="1_q62g0"]
 [ext_resource type="Script" uid="uid://chjwn3v7r8hgo" path="res://Assets/Map/Candi/map_depan_candi.gd" id="1_tq6it"]
 [ext_resource type="PackedScene" uid="uid://m5r7sb67nx48" path="res://Assets/Map/Candi/map_front.tscn" id="2_tq6it"]
 [ext_resource type="PackedScene" uid="uid://dk3pjhgfxasmb" path="res://Assets/Map/Candi/Candi.tscn" id="3_mr2rd"]
+[ext_resource type="Script" uid="uid://cf5gmtcwefa5w" path="res://Assets/Map/Candi/Area_2d_ke_stage_0.gd" id="5_mr2rd"]
 [ext_resource type="PackedScene" uid="uid://cw5186hd8en7l" path="res://Assets/Character/Nanda/nanda.tscn" id="5_tq6it"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q62g0"]
+radius = 16.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tq6it"]
 a = Vector2(0, -64)
@@ -29,15 +31,17 @@ layer = -2
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_q62g0")]
 
 [node name="CandiLuar" parent="." instance=ExtResource("2_tq6it")]
+texture_filter = 1
 position = Vector2(-855, 269)
 scale = Vector2(0.7, 0.7)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("5_mr2rd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1092, 966)
+position = Vector2(-1090, 966)
 shape = SubResource("CircleShape2D_q62g0")
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="Area2D"]
@@ -80,3 +84,5 @@ offset_bottom = 1111.0
 color = Color(0.18088, 0, 0.000147033, 0.592157)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

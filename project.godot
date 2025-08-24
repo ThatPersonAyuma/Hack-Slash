@@ -27,6 +27,7 @@ directories/dch_directory={
 "Suara Misterius": "res://Dialog/Character/Suara Misterius.dch"
 }
 directories/dtl_directory={
+"chapterd1": "res://Dialog/chapterd1.dtl",
 "prolog": "res://Dialog/prolog.dtl",
 "prolog2": "res://Dialog/prolog2.dtl",
 "prolog3": "res://Dialog/prolog3.dtl"

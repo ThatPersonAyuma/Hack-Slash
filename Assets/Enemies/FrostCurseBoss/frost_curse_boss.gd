@@ -120,6 +120,7 @@ func _on_ray_not_collided():
 		Direction*=-1
 		rayNode2D.position = Vector2(rayNode2D.position.x*-1, rayNode2D.position.y)
 		PivotNode.scale = Vector2(Direction, 1)
+	
 
 
 func _on_attacking_area_body_exited(_body: Node2D) -> void:
@@ -132,7 +133,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		global_position = Vector2(global_position.x+70*Direction, global_position.y)
 	 # Replace with function body.
 
-
 func _on_attack_range_body_entered(_body: Node2D) -> void:
 	print("Hit") # Replace with function body.
 	Global.McHealth -= dmg_dealt
@@ -140,6 +140,6 @@ func _on_attack_range_body_entered(_body: Node2D) -> void:
 		print("Win")
 
 func _on_ranged_attack_body_entered(body: Node2D) -> void:
-	print(body.name)
-	print("Hit by ranged attack")
-	pass # Replace with function body.
+	Global.McHealth -= int(dmg_dealt/2)
+	if Global.McHealth < 0 :
+		print("Win") # Replace with function body.

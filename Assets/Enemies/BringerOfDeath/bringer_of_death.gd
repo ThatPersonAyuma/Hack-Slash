@@ -46,7 +46,8 @@ func _physics_process(delta: float) -> void:
 				pst = (Global.Player.global_position.x - global_position.x) * Direction 
 				if (pst<0):
 					change_direction()
-				attack_player()
+				IsAttacking = true
+				animation_player.play("melee_Attack")
 			else:
 				ChargeRunningColdown += delta
 			if (!IsAttacking):
@@ -77,11 +78,6 @@ func _physics_process(delta: float) -> void:
 				#print("Direction: ", Direction," left: ", $EndPointLeft/RayCast2D.is_colliding(), " right: ", $EndPointRight/RayCast2D.is_colliding())
 		move_and_slide();
 	#print(Global.McHealth)
-
-func attack_player():
-	IsAttacking = true
-	animation_player.play("melee_Attack")
-	
 
 func check_player_in_range_area():
 	var distance = global_position.distance_to(Global.Player.global_position)

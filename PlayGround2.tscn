@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bsokd4216nfko"]
+[gd_scene load_steps=11 format=4 uid="uid://bsokd4216nfko"]
 
 [ext_resource type="PackedScene" uid="uid://m5r7sb67nx48" path="res://Assets/Map/Candi/map_front.tscn" id="1_tw7bs"]
 [ext_resource type="PackedScene" uid="uid://m47tc1dqutk4" path="res://Assets/Character/DummyKnight.tscn" id="2_6mums"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cln8jabslqyil" path="res://Assets/Map/Candi/Assets/bush_green.png" id="4_6mums"]
 [ext_resource type="PackedScene" uid="uid://cw3e4i4gm2o2w" path="res://Assets/Enemies/BringerOfDeath/bringer_of_death.tscn" id="5_tpvjo"]
 [ext_resource type="Script" uid="uid://bpcq0o13r5aaf" path="res://test_next_scene.gd" id="6_12i17"]
+[ext_resource type="PackedScene" uid="uid://c6hdpr3warb5s" path="res://Assets/Enemies/NightBorne/NightBorne.tscn" id="7_h12io"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpvjo"]
 texture = ExtResource("4_6mums")
@@ -64,5 +65,8 @@ script = ExtResource("6_12i17")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-56, 924)
 shape = SubResource("SegmentShape2D_h12io")
+
+[node name="Node2D" parent="." instance=ExtResource("7_h12io")]
+position = Vector2(-323, 871)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=85 format=3 uid="uid://c6hdpr3warb5s"]
+[gd_scene load_steps=87 format=3 uid="uid://c6hdpr3warb5s"]
 
+[ext_resource type="Script" uid="uid://b4jb0vqaldwym" path="res://Assets/Enemies/NightBorne/night_borne.gd" id="1_f0o56"]
 [ext_resource type="Texture2D" uid="uid://dmmspmj56ntb" path="res://Assets/Enemies/NightBorne/Assets/NightBorne.png" id="1_n8p5c"]
 [ext_resource type="Texture2D" uid="uid://cficqatrkv7ru" path="res://Assets/Enemies/NightBorne/Assets/WaveDetailed.png" id="2_f0o56"]
+[ext_resource type="PackedScene" uid="uid://uys8h8ycti1w" path="res://Assets/Enemies/SharedAssets/ray_cast_floor.tscn" id="4_8cybn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s3rwk"]
 atlas = ExtResource("2_f0o56")
@@ -708,15 +710,18 @@ radius = 11.6619
 
 [node name="Node2D" type="CharacterBody2D"]
 collision_layer = 4
+script = ExtResource("1_f0o56")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Wave" type="AnimatedSprite2D" parent="Area2D"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_oy42b")
 animation = &"playing"
-frame_progress = 0.496532
+frame_progress = 0.718258
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(10, 33)
 rotation = -0.349066
 shape = SubResource("CapsuleShape2D_rj525")
@@ -731,9 +736,8 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PivotNode"]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_2t0mj")
-animation = &"run"
+animation = &"meleeAttack"
 autoplay = "idle"
-frame_progress = 0.753893
 
 [node name="MeleeArea" type="Area2D" parent="PivotNode"]
 collision_layer = 0
@@ -752,7 +756,16 @@ collision_mask = 2
 position = Vector2(-3, 4)
 shape = SubResource("CircleShape2D_f0o56")
 
+[node name="RayCastFloor" parent="PivotNode" instance=ExtResource("4_8cybn")]
+position = Vector2(18, 10)
+
+[node name="RayCast2D" type="RayCast2D" parent="PivotNode"]
+position = Vector2(10, 9)
+target_position = Vector2(14, 0)
+
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(5.96046e-08, 4)
 rotation = 0.958186
 shape = SubResource("CircleShape2D_8cybn")
+
+[connection signal="area_entered" from="PivotNode/MeleeArea" to="." method="_on_melee_area_area_entered"]

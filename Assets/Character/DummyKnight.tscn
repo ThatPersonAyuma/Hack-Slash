@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://m47tc1dqutk4"]
+[gd_scene load_steps=90 format=3 uid="uid://m47tc1dqutk4"]
 
 [ext_resource type="Texture2D" uid="uid://boll7xjxkscqh" path="res://Assets/Character/MC/assets/Colour1/NoOutline/120x80_PNGSheets/_Dash.png" id="1_crvi4"]
 [ext_resource type="Script" path="res://Assets/Character/MC/dummy_knight.gd" id="1_u11o1"]
@@ -585,6 +585,9 @@ height = 34.3025
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u11o1"]
 bg_color = Color(0.705882, 0.176471, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt6m2"]
+bg_color = Color(1, 0.937255, 0, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
@@ -625,6 +628,17 @@ offset_top = 17.0
 offset_right = 172.0
 offset_bottom = 40.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_u11o1")
+value = 100.0
+show_percentage = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D/CanvasLayer2"]
+offset_left = 15.0
+offset_top = 50.0
+offset_right = 172.0
+offset_bottom = 73.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_dt6m2")
 value = 100.0
 show_percentage = false
 

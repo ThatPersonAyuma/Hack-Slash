@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://bq40ylab8e7di"]
+[gd_scene load_steps=41 format=4 uid="uid://bq40ylab8e7di"]
 
 [ext_resource type="Script" uid="uid://mojiesyxr4w7" path="res://dalam_temple.gd" id="1_0gfcw"]
 [ext_resource type="PackedScene" uid="uid://m47tc1dqutk4" path="res://Assets/Character/DummyKnight.tscn" id="1_qq4y7"]
@@ -9,15 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dxx75yferpuym" path="res://Assets/Map/Shared Asset/Temple asset/Reruntuhan yang dipakai.png" id="6_l3mfn"]
 [ext_resource type="Texture2D" uid="uid://cf5nsu5406ljg" path="res://Assets/Map/Shared Asset/Temple asset/Duri.png" id="7_qe0qc"]
 [ext_resource type="Texture2D" uid="uid://8inynw5y4de2" path="res://Assets/Map/Shared Asset/Temple asset/ada patungnya.png" id="10_ykyo5"]
-[ext_resource type="Texture2D" uid="uid://fw4fo2a4r0e4" path="res://Assets/Enemies/Board/Idle-Sheet.png" id="11_ex2s3"]
-[ext_resource type="Texture2D" uid="uid://b1cejvimvoe65" path="res://Assets/Enemies/Board/Run-Sheet.png" id="12_5i04u"]
 [ext_resource type="PackedScene" uid="uid://m7d4l51pmoqv" path="res://Assets/Map/Forest/forestbackground_parallax.tscn" id="13_ex2s3"]
-[ext_resource type="Texture2D" uid="uid://nlcyaqcvkcwq" path="res://Assets/Enemies/Board/Walk-Base-Sheet.png" id="13_owhu2"]
-[ext_resource type="Script" uid="uid://cmq353w2vcem8" path="res://gravity.gd" id="14_5i04u"]
-[ext_resource type="Script" uid="uid://cpr2vda7q84uv" path="res://state_machine_controller.gd" id="15_h8img"]
-[ext_resource type="Script" uid="uid://b6neq745s1n0t" path="res://node_finite_state_machine.gd" id="15_owhu2"]
-[ext_resource type="Script" uid="uid://bkeouojw4dgfw" path="res://idle.gd" id="16_x3blj"]
-[ext_resource type="Script" uid="uid://v6igq7wgwlje" path="res://attack.gd" id="17_jspid"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0gfcw"]
 
@@ -6072,148 +6064,12 @@ _data = {
 &"kayu mengambang  1": SubResource("Animation_0ucff")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3blj"]
-atlas = ExtResource("11_ex2s3")
-region = Rect2(0, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jspid"]
-atlas = ExtResource("11_ex2s3")
-region = Rect2(48, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8img"]
-atlas = ExtResource("11_ex2s3")
-region = Rect2(96, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y56yd"]
-atlas = ExtResource("11_ex2s3")
-region = Rect2(144, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_65elw"]
-atlas = ExtResource("13_owhu2")
-region = Rect2(0, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ly836"]
-atlas = ExtResource("13_owhu2")
-region = Rect2(48, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6y6qd"]
-atlas = ExtResource("13_owhu2")
-region = Rect2(96, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhl6d"]
-atlas = ExtResource("13_owhu2")
-region = Rect2(144, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n3gas"]
-atlas = ExtResource("13_owhu2")
-region = Rect2(192, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b6b8f"]
-atlas = ExtResource("13_owhu2")
-region = Rect2(240, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a2754"]
-atlas = ExtResource("12_5i04u")
-region = Rect2(0, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_exmxo"]
-atlas = ExtResource("12_5i04u")
-region = Rect2(48, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_atycd"]
-atlas = ExtResource("12_5i04u")
-region = Rect2(96, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7khts"]
-atlas = ExtResource("12_5i04u")
-region = Rect2(144, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qch6x"]
-atlas = ExtResource("12_5i04u")
-region = Rect2(192, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fcohd"]
-atlas = ExtResource("12_5i04u")
-region = Rect2(240, 0, 48, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_phfv3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x3blj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jspid")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h8img")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y56yd")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_65elw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ly836")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6y6qd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bhl6d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n3gas")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b6b8f")
-}],
-"loop": true,
-"name": &"Walk",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a2754")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_exmxo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_atycd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7khts")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qch6x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fcohd")
-}],
-"loop": true,
-"name": &"attack",
-"speed": 18.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex2s3"]
-size = Vector2(38, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jspid"]
-size = Vector2(370, 21)
-
 [node name="Temple" type="Node2D"]
 script = ExtResource("1_0gfcw")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_qq4y7")]
 z_index = 9
-position = Vector2(-4705, 714)
+position = Vector2(-4897, 582)
 ZoomValue = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -6384,56 +6240,6 @@ libraries = {
 }
 autoplay = "RESET"
 
-[node name="Node2D" parent="." instance=ExtResource("13_ex2s3")]
-
-[node name="Boar" type="CharacterBody2D" parent="."]
-collision_layer = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boar"]
-texture_filter = 1
-position = Vector2(-4562, 742)
-sprite_frames = SubResource("SpriteFrames_phfv3")
-animation = &"attack"
-autoplay = "Idle"
-frame_progress = 0.599865
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boar"]
-position = Vector2(-4563, 746.5)
-shape = SubResource("RectangleShape2D_ex2s3")
-
-[node name="gravity" type="Node" parent="Boar"]
-script = ExtResource("14_5i04u")
-
-[node name="StateMachineController" type="Node" parent="Boar" node_paths=PackedStringArray("node_finite_state_machine")]
-script = ExtResource("15_h8img")
-node_finite_state_machine = NodePath("../State_machine")
-
-[node name="State_machine" type="Node" parent="Boar" node_paths=PackedStringArray("initial_node_state")]
-script = ExtResource("15_owhu2")
-initial_node_state = NodePath("idle")
-
-[node name="idle" type="Node" parent="Boar/State_machine" node_paths=PackedStringArray("character_body_2d", "animated_sprite_2d")]
-script = ExtResource("16_x3blj")
-character_body_2d = NodePath("../..")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")
-slow_down_speed = 200
-
-[node name="attack" type="Node" parent="Boar/State_machine" node_paths=PackedStringArray("character_body_2d", "animated_sprite_2d")]
-script = ExtResource("17_jspid")
-character_body_2d = NodePath("../..")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")
-
-[node name="AttackArea2D" type="Area2D" parent="Boar"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boar/AttackArea2D"]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(-4563, 746.5)
-shape = SubResource("RectangleShape2D_jspid")
-debug_color = Color(1, 0, 0.0352941, 0.419608)
+[node name="Background" parent="." instance=ExtResource("13_ex2s3")]
 
 [connection signal="body_entered" from="Tilesmap/Zona duri" to="." method="_on_zona_duri_body_entered"]
-[connection signal="body_entered" from="Boar/AttackArea2D" to="Boar/StateMachineController" method="_on_attack_area_2d_body_entered"]
-[connection signal="body_exited" from="Boar/AttackArea2D" to="Boar/StateMachineController" method="_on_attack_area_2d_body_exited"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpoj5k34jj0u1"]
+
+[ext_resource type="Texture2D" uid="uid://d3ni6r207ihor" path="res://Assets/Map/Shared Asset/Temple asset/Background Extended.png" id="1_1se6o"]
+[ext_resource type="Texture2D" uid="uid://bdryo0iq6oorl" path="res://Assets/Map/Shared Asset/Temple asset/Midleground Extended.png" id="2_6v3kh"]
+
+[node name="Backgroud stage 1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Paling belakang\\" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Paling belakang\\"]
+texture = ExtResource("1_1se6o")
+
+[node name="middle" type="Parallax2D" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/middle"]
+texture = ExtResource("2_6v3kh")
